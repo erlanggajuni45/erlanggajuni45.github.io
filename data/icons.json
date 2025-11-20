@@ -4,8 +4,12 @@
     "name": "React Js"
   },
   {
-    "icon": "laravel.png",
-    "name": "Laravel"
+    "icon": "golang.png",
+    "name": "GoLang"
+  },
+  {
+    "icon": "expressjs.png",
+    "name": "Express Js"
   },
   {
     "icon": "tailwind_css.png",
@@ -20,8 +24,28 @@
     "name": "Bootstrap"
   },
   {
-    "icon": "golang.png",
-    "name": "GoLang"
+    "icon": "docker.png",
+    "name": "Docker"
+  },
+  {
+    "icon": "nginx.png",
+    "name": "Nginx"
+  },
+  {
+    "icon": "linux.png",
+    "name": "Linux"
+  },
+  {
+    "icon": "postgresql.png",
+    "name": "PostgreSQL"
+  },
+  {
+    "icon": "mongodb.png",
+    "name": "MongoDB"
+  },
+  {
+    "icon": "laravel.png",
+    "name": "Laravel"
   },
   {
     "icon": "jquery.png",
