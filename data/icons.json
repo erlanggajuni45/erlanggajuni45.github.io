@@ -1,0 +1,30 @@
+[
+  {
+    "icon": "react.png",
+    "name": "React Js"
+  },
+  {
+    "icon": "laravel.png",
+    "name": "Laravel"
+  },
+  {
+    "icon": "tailwind_css.png",
+    "name": "Tailwind CSS"
+  },
+  {
+    "icon": "typescript.png",
+    "name": "TypeScript"
+  },
+  {
+    "icon": "bootstrap.png",
+    "name": "Bootstrap"
+  },
+  {
+    "icon": "golang.png",
+    "name": "GoLang"
+  },
+  {
+    "icon": "jquery.png",
+    "name": "jQuery"
+  }
+]
