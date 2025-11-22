@@ -4,6 +4,7 @@ document.addEventListener('DOMContentLoaded', function () {
       .then((response) => response.json())
       .then((data) => {
         const container = document.getElementById('tech-icon-section');
+        container.innerHTML = '';
         data.forEach((item) => {
           const link = document.createElement('a');
           link.href = '#skills';
