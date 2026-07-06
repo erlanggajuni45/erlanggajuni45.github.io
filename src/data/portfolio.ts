@@ -51,6 +51,7 @@ export const skillsData: Skill[] = [
   { name: "GoLang", icon: "/img/skill/golang.png" },
   { name: "React Js", icon: "/img/skill/react.png" },
   { name: "TypeScript", icon: "/img/skill/typescript.png" },
+  { name: "Python", icon: "/img/skill/python.svg" },
   { name: "Express Js", icon: "/img/skill/expressjs.png" },
   { name: "Tailwind CSS", icon: "/img/skill/tailwind_css.png" },
   { name: "Docker", icon: "/img/skill/docker.png" },
@@ -104,5 +105,34 @@ export const projectsData: Project[] = [
     description: "A dual-app architecture (Express.js & Go) designed to simulate security attacks and audit employee awareness. Features custom telemetry tracking, email server blasting configuration, and comprehensive reporting.",
     image: "/img/project/phishing.png",
     type: "Private / Internal App"
+  }
+];
+
+export interface Certificate {
+  title: string;
+  issuer: string;
+  issueDate: string;
+  credentialUrl: string;
+  logoUrl?: string;
+}
+
+export const certificatesData: Certificate[] = [
+  {
+    title: "Menjadi Back-End Developer Expert dengan JavaScript",
+    issuer: "Dicoding Indonesia",
+    issueDate: "2023",
+    credentialUrl: "https://www.dicoding.com/certificates/0LZ02QG43X65",
+  },
+  {
+    title: "Belajar Membangun Arsitektur Microservices",
+    issuer: "Dicoding Indonesia",
+    issueDate: "2026",
+    credentialUrl: "https://www.dicoding.com/certificates/JLX1VJR75Z72",
+  },
+  {
+    title: "Menjadi React Web Developer Expert",
+    issuer: "Dicoding Indonesia",
+    issueDate: "2026",
+    credentialUrl: "https://www.dicoding.com/certificates/6RPN750G4X2M",
   }
 ];

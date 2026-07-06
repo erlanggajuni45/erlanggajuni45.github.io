@@ -32,7 +32,7 @@ export default function Header({
                 {/* Desktop Navigation */}
                 <nav className="hidden md:flex items-center gap-8">
                     <ul className="flex items-center gap-8 font-medium">
-                        {["home", "about", "portfolio", "skills"].map((section) => (
+                        {["home", "about", "portfolio", "skills", "certificates"].map((section) => (
                             <li key={section}>
                                 <a
                                     href={`#${section}`}
@@ -41,7 +41,7 @@ export default function Header({
                                         : "text-slate-600 dark:text-slate-300 hover:text-primary"
                                         }`}
                                 >
-                                    {section === "portfolio" ? "Portfolio" : section}
+                                    {section === "portfolio" ? "Portfolio" : section === "certificates" ? "Certificates" : section}
                                     {activeSection === section && (
                                         <span className="absolute bottom-0 left-0 w-full h-[2px] bg-primary rounded-full" />
                                     )}
@@ -116,7 +116,7 @@ export default function Header({
                     }`}
             >
                 <ul className="px-6 py-4 flex flex-col gap-4 font-semibold">
-                    {["home", "about", "portfolio", "skills"].map((section) => (
+                    {["home", "about", "portfolio", "skills", "certificates"].map((section) => (
                         <li key={section}>
                             <a
                                 href={`#${section}`}
@@ -126,7 +126,7 @@ export default function Header({
                                     : "text-slate-600 dark:text-slate-300"
                                     }`}
                             >
-                                {section === "portfolio" ? "Portfolio" : section}
+                                {section === "portfolio" ? "Portfolio" : section === "certificates" ? "Certificates" : section}
                             </a>
                         </li>
                     ))}
