@@ -3,6 +3,7 @@
 import { useState, useEffect } from "react";
 import Image from "next/image";
 import { profileData, skillsData, projectsData, Project } from "@/data/portfolio";
+import Header from "./components/Header";
 
 export default function Home() {
   // Navigation & Scroll states
@@ -19,8 +20,8 @@ export default function Home() {
 
   // Load theme and listen to scroll
   useEffect(() => {
-    // Sync dark mode state with document class
     const isDark = document.documentElement.classList.contains("dark");
+    // Sync dark mode state with document class
     setIsDarkMode(isDark);
 
     const handleScroll = () => {
@@ -79,129 +80,14 @@ export default function Home() {
         <div className="absolute top-[20%] right-[10%] w-[35vw] h-[35vw] rounded-full bg-cyan-500/10 blur-[120px] dark:bg-cyan-500/5" />
       </div>
 
-      {/* Header/Navbar */}
-      <header
-        className={`fixed top-0 left-0 w-full z-50 transition-all duration-300 ${
-          isScrolled
-            ? "py-4 bg-white/80 dark:bg-slate-950/80 backdrop-blur-md shadow-lg shadow-slate-100/50 dark:shadow-none border-b border-slate-100 dark:border-slate-800"
-            : "py-6 bg-transparent"
-        }`}
-      >
-        <div className="container flex items-center justify-between">
-          <a
-            href="#home"
-            className="font-bold text-2xl tracking-tight bg-gradient-to-r from-primary to-cyan-500 bg-clip-text text-transparent"
-          >
-            Erlangga<span className="text-slate-800 dark:text-white">Juni</span>
-          </a>
-
-          {/* Desktop Navigation */}
-          <nav className="hidden md:flex items-center gap-8">
-            <ul className="flex items-center gap-8 font-medium">
-              {["home", "about", "portfolio", "skills"].map((section) => (
-                <li key={section}>
-                  <a
-                    href={`#${section}`}
-                    className={`capitalize text-sm transition-colors relative py-1 ${
-                      activeSection === section
-                        ? "text-primary font-semibold"
-                        : "text-slate-600 dark:text-slate-300 hover:text-primary"
-                    }`}
-                  >
-                    {section === "portfolio" ? "Portfolio" : section}
-                    {activeSection === section && (
-                      <span className="absolute bottom-0 left-0 w-full h-[2px] bg-primary rounded-full" />
-                    )}
-                  </a>
-                </li>
-              ))}
-            </ul>
-
-            {/* Dark Mode Toggle (Desktop) */}
-            <button
-              onClick={toggleDarkMode}
-              className="p-2 rounded-full border border-slate-200 dark:border-slate-800 hover:bg-slate-100 dark:hover:bg-slate-900 transition-colors text-slate-600 dark:text-slate-300"
-              aria-label="Toggle theme"
-            >
-              {isDarkMode ? (
-                // Sun Icon
-                <svg className="w-5 h-5 fill-current" viewBox="0 0 24 24">
-                  <path d="M12 7c-2.76 0-5 2.24-5 5s2.24 5 5 5 5-2.24 5-5-2.24-5-5-5zM2 13h2c.55 0 1-.45 1-1s-.45-1-1-1H2c-.55 0-1 .45-1 1s.45 1 1 1zm18 0h2c.55 0 1-.45 1-1s-.45-1-1-1h-2c-.55 0-1 .45-1 1s.45 1 1 1zM11 2v2c0 .55.45 1 1 1s1-.45 1-1V2c0-.55-.45-1-1-1s-1 .45-1 1zm0 18v2c0 .55.45 1 1 1s1-.45 1-1v-2c0-.55-.45-1-1-1s-1 .45-1 1zM5.99 4.58c-.39-.39-1.03-.39-1.41 0s-.39 1.03 0 1.41l1.06 1.06c.39.39 1.03.39 1.41 0s.39-1.03 0-1.41L5.99 4.58zm12.37 12.37c-.39-.39-1.03-.39-1.41 0s-.39 1.03 0 1.41l1.06 1.06c.39.39 1.03.39 1.41 0s.39-1.03 0-1.41l-1.06-1.06zm1.06-10.96c.39-.39.39-1.03 0-1.41s-1.03-.39-1.41 0l-1.06 1.06c-.39.39-.39 1.03 0 1.41s1.03.39 1.41 0l1.06-1.06zM7.05 18.01c.39-.39.39-1.03 0-1.41s-1.03-.39-1.41 0l-1.06 1.06c-.39.39-.39 1.03 0 1.41s1.03.39 1.41 0l1.06-1.06z" />
-                </svg>
-              ) : (
-                // Moon Icon
-                <svg className="w-5 h-5 fill-current" viewBox="0 0 24 24">
-                  <path d="M12.3 22h-.1c-5.5 0-10-4.5-10-10 0-4.8 3.5-8.9 8.2-9.8.6-.1 1.2.3 1.3.9.1.6-.3 1.2-.9 1.3-3.7.8-6.4 4-6.4 7.7 0 4.4 3.6 8 8 8 3.7 0 6.9-2.6 7.7-6.4.1-.6.7-1 1.3-.9.6.1 1 .7.9 1.3-.9 4.6-5 8.1-9.9 8.1z" />
-                </svg>
-              )}
-            </button>
-          </nav>
-
-          {/* Mobile Actions Container */}
-          <div className="flex items-center gap-4 md:hidden">
-            {/* Dark Mode Toggle (Mobile) */}
-            <button
-              onClick={toggleDarkMode}
-              className="p-2 rounded-full border border-slate-200 dark:border-slate-800 hover:bg-slate-100 dark:hover:bg-slate-900 transition-colors text-slate-600 dark:text-slate-300"
-              aria-label="Toggle theme"
-            >
-              {isDarkMode ? (
-                <svg className="w-5 h-5 fill-current" viewBox="0 0 24 24">
-                  <path d="M12 7c-2.76 0-5 2.24-5 5s2.24 5 5 5 5-2.24 5-5-2.24-5-5-5zM2 13h2c.55 0 1-.45 1-1s-.45-1-1-1H2c-.55 0-1 .45-1 1s.45 1 1 1zm18 0h2c.55 0 1-.45 1-1s-.45-1-1-1h-2c-.55 0-1 .45-1 1s.45 1 1 1zM11 2v2c0 .55.45 1 1 1s1-.45 1-1V2c0-.55-.45-1-1-1s-1 .45-1 1zm0 18v2c0 .55.45 1 1 1s1-.45 1-1v-2c0-.55-.45-1-1-1s-1 .45-1 1zM5.99 4.58c-.39-.39-1.03-.39-1.41 0s-.39 1.03 0 1.41l1.06 1.06c.39.39 1.03.39 1.41 0s.39-1.03 0-1.41L5.99 4.58zm12.37 12.37c-.39-.39-1.03-.39-1.41 0s-.39 1.03 0 1.41l1.06 1.06c.39.39 1.03.39 1.41 0s.39-1.03 0-1.41l-1.06-1.06zm1.06-10.96c.39-.39.39-1.03 0-1.41s-1.03-.39-1.41 0l-1.06 1.06c-.39.39-.39 1.03 0 1.41s1.03.39 1.41 0l1.06-1.06zM7.05 18.01c.39-.39.39-1.03 0-1.41s-1.03-.39-1.41 0l-1.06 1.06c-.39.39-.39 1.03 0 1.41s1.03.39 1.41 0l1.06-1.06z" />
-                </svg>
-              ) : (
-                <svg className="w-5 h-5 fill-current" viewBox="0 0 24 24">
-                  <path d="M12.3 22h-.1c-5.5 0-10-4.5-10-10 0-4.8 3.5-8.9 8.2-9.8.6-.1 1.2.3 1.3.9.1.6-.3 1.2-.9 1.3-3.7.8-6.4 4-6.4 7.7 0 4.4 3.6 8 8 8 3.7 0 6.9-2.6 7.7-6.4.1-.6.7-1 1.3-.9.6.1 1 .7.9 1.3-.9 4.6-5 8.1-9.9 8.1z" />
-                </svg>
-              )}
-            </button>
-
-            {/* Mobile Hamburger menu */}
-            <button
-              onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}
-              className="p-2 text-slate-600 dark:text-slate-300 hover:bg-slate-100 dark:hover:bg-slate-900 rounded-md focus:outline-none"
-              aria-label="Toggle menu"
-            >
-              {isMobileMenuOpen ? (
-                // Close Icon
-                <svg className="w-6 h-6 stroke-current" fill="none" viewBox="0 0 24 24">
-                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M6 18L18 6M6 6l12 12" />
-                </svg>
-              ) : (
-                // Hamburger Icon
-                <svg className="w-6 h-6 stroke-current" fill="none" viewBox="0 0 24 24">
-                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M4 6h16M4 12h16M4 18h16" />
-                </svg>
-              )}
-            </button>
-          </div>
-        </div>
-
-        {/* Mobile Navigation Drawer */}
-        <div
-          className={`md:hidden absolute top-full left-0 w-full bg-white dark:bg-slate-950 border-b border-slate-100 dark:border-slate-800 shadow-xl transition-all duration-300 overflow-hidden ${
-            isMobileMenuOpen ? "max-h-[300px] opacity-100" : "max-h-0 opacity-0"
-          }`}
-        >
-          <ul className="px-6 py-4 flex flex-col gap-4 font-semibold">
-            {["home", "about", "portfolio", "skills"].map((section) => (
-              <li key={section}>
-                <a
-                  href={`#${section}`}
-                  onClick={() => setIsMobileMenuOpen(false)}
-                  className={`block py-2 capitalize transition-colors ${
-                    activeSection === section
-                      ? "text-primary"
-                      : "text-slate-600 dark:text-slate-300"
-                  }`}
-                >
-                  {section === "portfolio" ? "Portfolio" : section}
-                </a>
-              </li>
-            ))}
-          </ul>
-        </div>
-      </header>
+      <Header
+        isScrolled={isScrolled}
+        isDarkMode={isDarkMode}
+        toggleDarkMode={toggleDarkMode}
+        activeSection={activeSection}
+        isMobileMenuOpen={isMobileMenuOpen}
+        setIsMobileMenuOpen={setIsMobileMenuOpen}
+      />
 
       {/* Hero Section */}
       <section
@@ -248,7 +134,7 @@ export default function Home() {
                 {/* Outer Glow Effects */}
                 <div className="absolute inset-0 rounded-full bg-gradient-to-tr from-primary to-cyan-500 opacity-20 blur-3xl" />
                 <div className="absolute -inset-2 rounded-full bg-gradient-to-br from-primary to-cyan-400 opacity-20 animate-pulse duration-4000" />
-                
+
                 {/* SVG blob background */}
                 <div className="absolute inset-0 -z-10 scale-110">
                   <svg className="w-full h-full fill-primary/10 dark:fill-primary/5" viewBox="0 0 200 200">
@@ -305,7 +191,7 @@ export default function Home() {
                 <h3 className="text-2xl font-bold text-slate-900 dark:text-white mb-6">
                   Quick Details & Socials
                 </h3>
-                
+
                 {/* Stats list */}
                 <div className="space-y-4 mb-8">
                   <div className="flex gap-4">
@@ -412,11 +298,10 @@ export default function Home() {
               <button
                 key={cat}
                 onClick={() => setSelectedCategory(cat)}
-                className={`px-5 py-2 text-sm font-semibold rounded-full border transition-all duration-300 ${
-                  selectedCategory === cat
-                    ? "bg-primary border-primary text-white shadow-lg shadow-primary/20"
-                    : "border-slate-200 dark:border-slate-800 hover:border-primary/50 text-slate-600 dark:text-slate-300 bg-white dark:bg-slate-950"
-                }`}
+                className={`px-5 py-2 text-sm font-semibold rounded-full border transition-all duration-300 ${selectedCategory === cat
+                  ? "bg-primary border-primary text-white shadow-lg shadow-primary/20"
+                  : "border-slate-200 dark:border-slate-800 hover:border-primary/50 text-slate-600 dark:text-slate-300 bg-white dark:bg-slate-950"
+                  }`}
               >
                 {cat === "All" ? "All Projects" : cat}
               </button>
@@ -434,7 +319,7 @@ export default function Home() {
                 <div className="relative overflow-hidden aspect-video bg-slate-900 flex items-center justify-center p-6 border-b border-slate-100 dark:border-slate-800">
                   {/* Decorative background color overlay */}
                   <div className="absolute inset-0 bg-gradient-to-tr from-primary/10 to-cyan-500/10 opacity-30 group-hover:scale-105 transition-transform duration-500" />
-                  
+
                   {/* Image wrapper */}
                   <div className="relative w-full h-full transform group-hover:scale-[1.02] transition-transform duration-500">
                     <Image
@@ -495,7 +380,7 @@ export default function Home() {
       <section id="skills" className="py-24 bg-slate-950 text-white relative overflow-hidden transition-all">
         {/* Glow decoration */}
         <div className="absolute -bottom-[20%] right-[10%] w-[30vw] h-[30vw] rounded-full bg-primary/10 blur-[120px]" />
-        
+
         <div className="container">
           <div className="max-w-xl mx-auto text-center mb-16">
             <span className="text-primary font-bold text-sm tracking-wider uppercase mb-2 block">
@@ -621,9 +506,8 @@ export default function Home() {
       {/* Floating Back to Top Button */}
       <a
         href="#home"
-        className={`fixed bottom-6 right-6 z-50 flex h-12 w-12 rounded-full bg-primary hover:bg-primary/95 text-white shadow-lg items-center justify-center transition-all duration-300 hover:scale-105 ${
-          showToTop ? "opacity-100 translate-y-0" : "opacity-0 translate-y-4 pointer-events-none"
-        }`}
+        className={`fixed bottom-6 right-6 z-50 flex h-12 w-12 rounded-full bg-primary hover:bg-primary/95 text-white shadow-lg items-center justify-center transition-all duration-300 hover:scale-105 ${showToTop ? "opacity-100 translate-y-0" : "opacity-0 translate-y-4 pointer-events-none"
+          }`}
         aria-label="Back to top"
       >
         <svg className="w-6 h-6 stroke-current fill-none" strokeWidth="2.5" viewBox="0 0 24 24">
