@@ -50,6 +50,32 @@ export default function About({ profileData }: { profileData: Profile }) {
                                     <span className="text-primary font-semibold w-24 flex-shrink-0">Experience:</span>
                                     <span className="text-slate-700 dark:text-slate-300">Over 3 Years</span>
                                 </div>
+                                {profileData.socials.dicoding && (
+                                    <div className="flex gap-4">
+                                        <span className="text-primary font-semibold w-24 flex-shrink-0">Dicoding:</span>
+                                        <a
+                                            href={profileData.socials.dicoding}
+                                            target="_blank"
+                                            rel="noopener noreferrer"
+                                            className="text-slate-700 dark:text-slate-300 hover:text-primary transition-colors underline break-all font-medium"
+                                        >
+                                            erlanggajuni45
+                                        </a>
+                                    </div>
+                                )}
+                                {profileData.socials.bootdev && (
+                                    <div className="flex gap-4">
+                                        <span className="text-primary font-semibold w-24 flex-shrink-0">Boot.dev:</span>
+                                        <a
+                                            href={profileData.socials.bootdev}
+                                            target="_blank"
+                                            rel="noopener noreferrer"
+                                            className="text-slate-700 dark:text-slate-300 hover:text-primary transition-colors underline break-all font-medium"
+                                        >
+                                            erlanggajuni45
+                                        </a>
+                                    </div>
+                                )}
                             </div>
 
                             {/* Social icons */}

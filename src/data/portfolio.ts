@@ -25,6 +25,8 @@ export interface Profile {
     facebook: string;
     github: string;
     instagram: string;
+    dicoding?: string;
+    bootdev?: string;
   };
 }
 
@@ -43,7 +45,7 @@ export const profileData: Profile = {
   aboutParagraphs: [
     "I am a **Full Stack Engineer** entering my **4th year** of professional experience in designing, building, and optimizing scalable web applications. While I am proficient across the entire development lifecycle, my core strength lies in **Backend Engineering** using **Go (Golang)** and **Node.js**, alongside robust infrastructure management with **Docker** and Linux server administration.",
     "On the frontend, I craft highly responsive and interactive user interfaces using **React**, **TypeScript**, and modern design systems. My experience spans building enterprise-grade applications for major corporations like **PT Sharp Electronics Indonesia**, **PT Pos Indonesia**, and **PT Mitsubishi Motors**—ranging from high-traffic concurrent logistics systems to real-time IoT monitoring dashboards.",
-    "I am currently pursuing a **Bachelor's degree in Computer Science (S1 Informatika)** at **Telkom University** (having completed semester 5). To stay efficient and deliver high-quality clean code rapidly, I actively leverage AI-assisted tools like **GitHub Copilot** and **Gemini** to optimize my daily engineering workflows."
+    "I am currently pursuing a **Bachelor's degree in Computer Science (S1 Informatika)** at **Telkom University** (having completed semester 5). **To continuously advance my backend engineering and computer science skills, I actively learn from platforms like Dicoding Indonesia and Boot.dev**, while leveraging AI-assisted tools like **GitHub Copilot** and **Gemini** to optimize my daily engineering workflows."
   ],
   cvUrl: "https://bit.ly/erlangga_js_cv",
   email: "erlanggajunisaputra@gmail.com",
@@ -53,6 +55,8 @@ export const profileData: Profile = {
     facebook: "https://www.facebook.com/erlanggajuni.belekok",
     github: "https://github.com/erlanggajuni45",
     instagram: "https://instagram.com/erlanggajuni45",
+    dicoding: "https://www.dicoding.com/users/erlanggajuni45/academies",
+    bootdev: "https://www.boot.dev/u/erlanggajuni45"
   }
 };
 
