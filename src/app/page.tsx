@@ -75,7 +75,7 @@ export default function Home() {
   };
 
   // Categories for portfolio filtering
-  const categories = ["All", "Go", "React.js", "Docker", "WebSocket"];
+  const categories = ["All", "Go", "React.js", "Python", "Docker", "WebSocket"];
 
   // Filtered projects
   const filteredProjects = selectedCategory === "All"

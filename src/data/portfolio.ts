@@ -51,6 +51,7 @@ export const skillsData: Skill[] = [
   { name: "GoLang", icon: "/img/skill/golang.png" },
   { name: "React Js", icon: "/img/skill/react.png" },
   { name: "TypeScript", icon: "/img/skill/typescript.png" },
+  { name: "Python", icon: "/img/skill/python.svg" },
   { name: "Express Js", icon: "/img/skill/expressjs.png" },
   { name: "Tailwind CSS", icon: "/img/skill/tailwind_css.png" },
   { name: "Docker", icon: "/img/skill/docker.png" },
