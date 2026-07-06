@@ -82,7 +82,7 @@ export default function Portfolio({ categories, filteredProjects, setSelectedCat
                                         ))}
                                     </div>
 
-                                    <p className="text-slate-600 dark:text-slate-400 leading-relaxed text-justify mb-6 text-sm sm:text-base">
+                                    <p className="text-slate-600 dark:text-slate-400 leading-relaxed text-justify mb-6 text-sm sm:text-base whitespace-pre-line">
                                         {project.description}
                                     </p>
                                 </div>
