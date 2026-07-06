@@ -5,6 +5,8 @@ export interface Project {
   description: string;
   image: string;
   type: string;
+  liveUrl?: string;
+  githubUrl?: string;
 }
 
 export interface Skill {
@@ -82,6 +84,16 @@ export const skillsData: Skill[] = [
 ];
 
 export const projectsData: Project[] = [
+  {
+    title: "Dicoding Forum App (React Expert)",
+    client: "Personal / Dicoding",
+    tech: ["React.js", "Redux", "Tailwind CSS", "Vitest", "CI/CD"],
+    description: "A high-performance discussion forum web application built to fulfill the Dicoding React Developer Expert certification. Features global state management using Redux Toolkit, full user authentication, leaderboard scoring, multi-category filters, and automated Vercel deployment with CI/CD.",
+    image: "/img/project/forum.png",
+    type: "Open Source",
+    liveUrl: "https://forum.erlanggajuni.dev/",
+    githubUrl: "https://github.com/erlanggajuni45/react-expert-dicoding"
+  },
   {
     title: "Integrated Maintenance Management System",
     client: "PT Mitsubishi Motors",

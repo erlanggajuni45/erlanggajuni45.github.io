@@ -87,13 +87,38 @@ export default function Portfolio({ categories, filteredProjects, setSelectedCat
                                     </p>
                                 </div>
 
-                                <div className="flex">
-                                    <button
-                                        className="flex-1 text-center bg-slate-100 dark:bg-slate-900 hover:bg-slate-200 dark:hover:bg-slate-800 text-slate-700 dark:text-slate-300 px-6 py-3 rounded-xl font-semibold border border-slate-200 dark:border-slate-800 transition"
-                                        disabled
-                                    >
-                                        {project.type}
-                                    </button>
+                                <div className="flex gap-3 flex-wrap sm:flex-nowrap">
+                                    {project.liveUrl || project.githubUrl ? (
+                                        <>
+                                            {project.liveUrl && (
+                                                <a
+                                                    href={project.liveUrl}
+                                                    target="_blank"
+                                                    rel="noopener noreferrer"
+                                                    className="flex-1 text-center bg-primary hover:bg-primary/90 text-white px-6 py-3 rounded-xl font-semibold border border-primary shadow-lg shadow-primary/20 transition-all duration-300 hover:-translate-y-0.5 text-sm sm:text-base block"
+                                                >
+                                                    Live Demo
+                                                </a>
+                                            )}
+                                            {project.githubUrl && (
+                                                <a
+                                                    href={project.githubUrl}
+                                                    target="_blank"
+                                                    rel="noopener noreferrer"
+                                                    className="flex-1 text-center bg-white dark:bg-slate-900 hover:bg-slate-100 dark:hover:bg-slate-800 text-slate-700 dark:text-slate-300 px-6 py-3 rounded-xl font-semibold border border-slate-200 dark:border-slate-800 transition-all duration-300 hover:-translate-y-0.5 text-sm sm:text-base block"
+                                                >
+                                                    GitHub
+                                                </a>
+                                            )}
+                                        </>
+                                    ) : (
+                                        <button
+                                            className="flex-1 text-center bg-slate-100 dark:bg-slate-900 hover:bg-slate-200 dark:hover:bg-slate-800 text-slate-700 dark:text-slate-300 px-6 py-3 rounded-xl font-semibold border border-slate-200 dark:border-slate-800 transition cursor-default text-sm sm:text-base"
+                                            disabled
+                                        >
+                                            {project.type}
+                                        </button>
+                                    )}
                                 </div>
                             </div>
                         </div>
