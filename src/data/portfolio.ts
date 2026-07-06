@@ -106,3 +106,32 @@ export const projectsData: Project[] = [
     type: "Private / Internal App"
   }
 ];
+
+export interface Certificate {
+  title: string;
+  issuer: string;
+  issueDate: string;
+  credentialUrl: string;
+  logoUrl?: string;
+}
+
+export const certificatesData: Certificate[] = [
+  {
+    title: "Menjadi Back-End Developer Expert dengan JavaScript",
+    issuer: "Dicoding Indonesia",
+    issueDate: "2023",
+    credentialUrl: "https://www.dicoding.com/certificates/0LZ02QG43X65",
+  },
+  {
+    title: "Belajar Membangun Arsitektur Microservices",
+    issuer: "Dicoding Indonesia",
+    issueDate: "2026",
+    credentialUrl: "https://www.dicoding.com/certificates/JLX1VJR75Z72",
+  },
+  {
+    title: "Menjadi React Web Developer Expert",
+    issuer: "Dicoding Indonesia",
+    issueDate: "2026",
+    credentialUrl: "https://www.dicoding.com/certificates/6RPN750G4X2M",
+  }
+];

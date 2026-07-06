@@ -1,13 +1,13 @@
 "use client";
 
 import { useState, useEffect } from "react";
-import { profileData, skillsData, projectsData, Project } from "@/data/portfolio";
+import { profileData, skillsData, projectsData, certificatesData } from "@/data/portfolio";
 import Header from "./components/Header";
 import Hero from "./components/Hero";
-import Image from "next/image";
 import About from "./components/About";
 import Portfolio from "./components/Portfolio";
 import Skills from "./components/Skills";
+import Certificates from "./components/Certificates";
 import Footer from "./components/Footer";
 
 export default function Home() {
@@ -26,8 +26,10 @@ export default function Home() {
   // Load theme and listen to scroll
   useEffect(() => {
     const isDark = document.documentElement.classList.contains("dark");
-    // Sync dark mode state with document class
-    setIsDarkMode(isDark);
+    // Sync dark mode state with document class asynchronously to prevent cascading renders
+    const timer = setTimeout(() => {
+      setIsDarkMode(isDark);
+    }, 0);
 
     const handleScroll = () => {
       // Toggle navbar border/shadow on scroll
@@ -36,7 +38,7 @@ export default function Home() {
       setShowToTop(window.scrollY > 500);
 
       // Section highlighting logic
-      const sections = ["home", "about", "portfolio", "skills"];
+      const sections = ["home", "about", "portfolio", "skills", "certificates"];
       const scrollPosition = window.scrollY + 160; // offset for header
 
       for (const sectionId of sections) {
@@ -53,7 +55,10 @@ export default function Home() {
     };
 
     window.addEventListener("scroll", handleScroll);
-    return () => window.removeEventListener("scroll", handleScroll);
+    return () => {
+      clearTimeout(timer);
+      window.removeEventListener("scroll", handleScroll);
+    };
   }, []);
 
   // Toggle Dark Mode
@@ -112,6 +117,9 @@ export default function Home() {
 
       {/* Skills Section */}
       <Skills skillsData={skillsData} />
+
+      {/* Certificates Section */}
+      <Certificates certificatesData={certificatesData} linkedinUrl={profileData.socials.linkedin} />
 
       {/* Footer Section */}
       <Footer profileData={profileData} />

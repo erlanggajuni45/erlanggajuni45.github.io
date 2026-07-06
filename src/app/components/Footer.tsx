@@ -22,13 +22,13 @@ export default function Footer({ profileData }: { profileData: Profile }) {
                     <div className="flex flex-col md:items-end">
                         <h3 className="font-bold text-xl text-white mb-6">Quick Links</h3>
                         <ul className="space-y-4 md:text-right">
-                            {["home", "about", "portfolio", "skills"].map((link) => (
+                            {["home", "about", "portfolio", "skills", "certificates"].map((link) => (
                                 <li key={link}>
                                     <a
                                         href={`#${link}`}
                                         className="text-slate-400 hover:text-primary transition-colors capitalize text-base inline-block"
                                     >
-                                        {link === "portfolio" ? "Portfolio" : link}
+                                        {link === "portfolio" ? "Portfolio" : link === "certificates" ? "Certificates" : link}
                                     </a>
                                 </li>
                             ))}
